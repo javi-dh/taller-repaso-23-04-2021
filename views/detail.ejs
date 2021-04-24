@@ -1,0 +1,20 @@
+<%- include('./partials/head.ejs', { titleHTML: movie.title }) %>
+<body>
+	<% if (movie !== undefined) { %>
+		<h2>Detalle de la película: <%= movie.title %> </h2>
+		<img src="<%= movie.poster %>" width="50%">
+		<p><b>Review:</b> <%= movie.review %> </p>
+		<p><b>Rating:</b> <%= movie.rating %> </p>
+		<p><b>Actors:</b> <%= movie.actors %> </p>
+		<p><b>Actors:</b></p>
+		<ul>
+			<% movie.actors.forEach(actor => { %>
+			<li><%= actor %> </li>
+			<% }) %>
+		</ul>
+		<a href="/movies">[volver]</a>
+	<% } else { %>
+		<h2>No hay películas con ese ID</h2>
+	<% } %>
+</body>
+</html>
